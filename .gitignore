@@ -1,0 +1,12 @@
+-- folders
+data/
+final_predictions_df
+models/
+
+-- file types
+*.csv
+*.tsf
+*.zip
+
+-- specific files
+utils.py

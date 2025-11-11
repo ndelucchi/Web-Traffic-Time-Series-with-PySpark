@@ -1,0 +1,5 @@
+https://www.kaggle.com/datasets/konradb/monash-time-series-forecasting-repository?select=kaggle_web_traffic_dataset_with_missing_values.tsf
+
+This dataset was used in the Kaggle Wikipedia Web Traffic forecasting competition. It contains 145063 daily time series representing the number of hits or web traffic for a set of Wikipedia pages from 2015-07-01 to 2017-09-10.
+
+https://doi.org/10.5281/zenodo.4656080
