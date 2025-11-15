@@ -17,21 +17,21 @@ This repository contains the complete end-to-end pipeline for forecasting multi-
 
 ## Results and Diagnostics
 
-The final model achieved a **Mean Absolute Percentage Error (MAPE) of $\mathbf{48.867\%}$** on the test set. Crucially, a detailed diagnostic analysis revealed the source of error:
+The final model achieved a **Mean Absolute Percentage Error (MAPE) of $\mathbf{48.4777\%}$** on the test set. Crucially, a detailed diagnostic analysis revealed the source of error:
 
 | Cluster ID | MAPE (%) | Finding |
 | :---: | :---: | :--- |
-| **0 & 1** | **$\mathbf{48.0\%} - \mathbf{48.5\%}$** | **High-Error Clusters.** These highly volatile, high-volume series are responsible for driving the overall error. |
-| **2, 3, & 4** | **$\mathbf{16.89\%} - \mathbf{38.37\%}$** | **Model Strength.** The model performs reliably on series with stable or predictable traffic patterns. |
+| **0, 1, 3** | **$\mathbf{40.1\%} - \mathbf{48.5\%}$** | **High-Error Clusters.** These highly volatile, high-volume series are responsible for driving the overall error. |
+| **2 & 4** | **$\mathbf{16.89\%} - \mathbf{34.54\%}$** | **Model Strength.** The model performs reliably on series with stable or predictable traffic patterns. |
 
 ### Residual Analysis
 
 Residual analysis confirmed two key limitations:
 * **Heteroscedasticity:** Error magnitude scales with the predicted value, confirming high-volume series are the primary sources of variance.
-* **Temporal Error:** Error spikes systematically align with periodic volatility (e.g., holidays/seasonality), confirming the need for enhanced event features.
+* **Temporal Error:** Error spikes systematically align with periodic volatility, confirming the need for enhanced event features.
 
 ## Future Work
 
-To improve performance, the recommended next steps are:
-1.  **Targeted Modeling:** Train specialized models with unique feature sets exclusively on the data belonging to the high-error **Clusters 0 and 1**.
-2.  **Feature Enrichment:** Integrate external data (e.g., weather, local events) or enhanced lagged features (e.g., year-over-year lags) to better capture the sharp, non-linear traffic shocks observed in the residuals.
+To improve performance, my recommended next steps are:
+1.  **Targeted Modeling:** Train specialized models with unique feature sets exclusively on the data belonging to the high-error **Clusters 0,1, and 3**.
+2.  **Feature Enrichment:** Integrate external data (such as product launches, advertising campaigns, or the nature of the webpage) or enhanced lagged features (e.g., year-over-year lags) to better capture the sharp, non-linear traffic shocks observed in the residuals.
